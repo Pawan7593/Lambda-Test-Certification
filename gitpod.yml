@@ -1,3 +1,6 @@
 tasks:
-  -init: pip3 install -r requirements.txt
-  command : pytest -v -m test01
+  - before : pip3 install -r requirements.txt
+    command: pytest -v -m test01
+
+  - name : test2
+    command: pytest -v -m test02
