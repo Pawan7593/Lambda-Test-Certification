@@ -22,10 +22,10 @@ desired_caps_crome = {
     }
 desired_caps_firfox = {
     "build" : "V1.0",
-	"name" : "LambdaTestPlaygorund_firefox",
+	"name" : "LambdaTestPlaygorund_edge",
 	"platform" : "Windows 10",
-	"browserName" : "firefox",
-    "version" :  "64.0",
+	"browserName" : "MicrosoftEdge",
+    "version" :  "94.0",
 	"resolution": "1024x768",
     "network" : True,
 	"video": True,
