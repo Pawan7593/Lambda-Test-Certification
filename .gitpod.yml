@@ -1,7 +1,7 @@
 tasks:
   - before: pip install -r requirements.txt
     name: Test Case on chrome
-    command: pytest -v -m test02
+    command: pytest -v -m test01
   - before: pip install -r requirements.txt
     name: Test Case on firefox
     command: pytest -v -m test02

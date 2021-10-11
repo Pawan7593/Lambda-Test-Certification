@@ -36,7 +36,7 @@ desired_caps_firfox = {
 
 
 @pytest.mark.test01
-def test_lambda01_test():
+def test_lambda01():
     driver = webdriver.Remote(command_executor="https://{}:{}@hub.lambdatest.com/wd/hub".format(username, access_key),desired_capabilities=desired_caps_crome)
     # driver = webdriver.Chrome("E:\\Pawan\\Study\\selenuimPython\\chromedriver.exe")
     driver.maximize_window()
@@ -94,7 +94,7 @@ def test_lambda01_test():
 
 
 @pytest.mark.test02
-def test_lambda02_test():
+def test_lambda02():
     driver = webdriver.Remote(command_executor="https://{}:{}@hub.lambdatest.com/wd/hub".format(username, access_key),desired_capabilities=desired_caps_firfox)
     # driver = webdriver.Chrome("E:\\Pawan\\Study\\selenuimPython\\chromedriver.exe")
     driver.maximize_window()
