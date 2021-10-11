@@ -20,7 +20,7 @@ desired_caps_crome = {
     "visual": True,
     "console": True
     }
-desired_caps_firfox = {
+desired_caps_edge = {
     "build" : "V1.0",
 	"name" : "LambdaTestPlaygorund_edge",
 	"platform" : "Windows 10",
@@ -95,7 +95,7 @@ def test_lambda01():
 
 @pytest.mark.test02
 def test_lambda02():
-    driver = webdriver.Remote(command_executor="https://{}:{}@hub.lambdatest.com/wd/hub".format(username, access_key),desired_capabilities=desired_caps_firfox)
+    driver = webdriver.Remote(command_executor="https://{}:{}@hub.lambdatest.com/wd/hub".format(username, access_key),desired_capabilities=desired_caps_edge)
     # driver = webdriver.Chrome("E:\\Pawan\\Study\\selenuimPython\\chromedriver.exe")
     driver.maximize_window()
     # steps for login on LambdaTest Selenium Playground
