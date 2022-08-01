@@ -5,6 +5,12 @@ from selenium import webdriver
 import time
 from selenium.webdriver import ActionChains
 import logging as logger
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.keys import Keys
+
+chrome_options = Options()
+chrome_options.add_argument("--headless")
+chrome_options.add_argument("--window-size=1920x1080")
 
 username = 'Pawan7593'
 access_key = 'ZqUuuwHmf7zGkrte88kDIMw1fL2sSDpJxvNcDVCAvjD3QktycK'
@@ -38,7 +44,7 @@ desired_caps_edge = {
 @pytest.mark.test01
 def test_lambda01():
     #driver = webdriver.Remote(command_executor="https://{}:{}@hub.lambdatest.com/wd/hub".format(username, access_key),desired_capabilities=desired_caps_crome)
-    driver = webdriver.Chrome("E:\\Pawan\\Study\\selenuimPython\\chromedriver_103.exe")
+    driver = webdriver.Chrome(chrome_options=chrome_options, executable_path="E:\\Pawan\\Study\\selenuimPython\\chromedriver_103.exe")
     driver.maximize_window()
     # steps for login on LambdaTest Selenium Playground
     driver.get("https://www.lambdatest.com/automation-demos")
