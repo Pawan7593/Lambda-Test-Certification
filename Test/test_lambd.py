@@ -14,7 +14,7 @@ desired_caps_crome = {
     "platform" : "Windows 10",
     "browserName" : "Chrome",
 	"resolution": "1024x768",
-    "version" : "94.0",
+    "version" : "103.0",
     "network" : True,
     "video": True,
     "visual": True,
@@ -38,13 +38,13 @@ desired_caps_edge = {
 @pytest.mark.test01
 def test_lambda01():
     #driver = webdriver.Remote(command_executor="https://{}:{}@hub.lambdatest.com/wd/hub".format(username, access_key),desired_capabilities=desired_caps_crome)
-    driver = webdriver.Chrome("E:\\Pawan\\Study\\selenuimPython\\chromedriver.exe")
+    driver = webdriver.Chrome("E:\\Pawan\\Study\\selenuimPython\\chromedriver_103.exe")
     driver.maximize_window()
     # steps for login on LambdaTest Selenium Playground
     driver.get("https://www.lambdatest.com/automation-demos")
     driver.find_element_by_id("username").send_keys("lambda")
     driver.find_element_by_id("password").send_keys("lambda123")
-    driver.find_element_by_css_selector("button[type='submit']").click()
+    driver.find_element_by_css_selector("#newapply > div.w-360.ml-auto.text-center.smtablet\:w-full.smtablet\:ml-0 > button").click()
     # fill form on Selenium playground page
     driver.find_element_by_id("developer-name").send_keys("testmail@gmail.com")
     driver.find_element_by_xpath('//*[@id="populate"]').click()
@@ -53,7 +53,7 @@ def test_lambda01():
     driver.execute_script("window.scrollTo(0, 500);")
     driver.find_element_by_css_selector("label[for='customer-service'] input[type='checkbox']").click()
     driver.execute_script("window.scrollTo(0, 500);")
-    driver.find_element_by_css_selector("option:nth-child(3)").click()
+    driver.find_element_by_css_selector("#preferred-payment > option:nth-child(3)").click()
     driver.find_element_by_name("tried-ecom").click()
     driver.execute_script("window.scrollTo(0, 700);")
     time.sleep(1)
@@ -84,7 +84,9 @@ def test_lambda01():
     alert.accept()
     # assert for upload image success
     assert alert_txt == 'your image upload sucessfully!!', f"Expected res 'your image upload sucessfully!!' Actual response {alert_txt}"
-    driver.find_element_by_css_selector("#submit-button").click()
+    time.sleep(2)
+    button = driver.find_element_by_css_selector('#submit-button')
+    driver.execute_script("arguments[0].click();", button)
     driver.execute_script("window.scrollTo(0, 200);")
     alert_txt2 = driver.find_element_by_xpath("(//p[contains(@class,'mb-10 text-gray-800 mt-20')])[1]").text
     # assert for submit form successfully
